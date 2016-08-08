@@ -105,23 +105,29 @@
 }
 
 // Activity
-.list-activity > li {
-    margin-bottom: 5px;
-    padding-bottom: 5px;
-    padding-left: 30px;
-    font-size: 13px;
-    border-bottom: 1px solid @gray-light;
+.list-activity {
+    > li {
+        margin-bottom: 7px;
+        padding-bottom: 7px;
+        padding-left: 40px;
+        font-size: 13px;
+        border-bottom: 1px solid @gray-light;
 
-    > i:first-child {
-        position: absolute;
-        left: 0;
-        top: 0;
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        line-height: 20px;
-        font-size: 14px;
-        text-align: center;
+        > i:first-child {
+            position: absolute;
+            left: 10px;
+            top: 0;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 14px;
+            text-align: center;
+        }
+    }
+
+    > li:last-child {
+        border-bottom: none;
     }
 }
 
@@ -135,7 +141,7 @@
     background-color: #b5d0eb;
 
     &:before {
-        .align-v();
+        .vertical-align();
         right: 10px;
         display: inline-block;
         font-family: 'FontAwesome';

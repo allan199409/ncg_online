@@ -44,13 +44,8 @@ app.use(app.router);
 // app.post('/uploadPic', routes.uploadPic);
 // catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
-	// var err = new Error('Not Found')
-	// res.json({
-	// 	err: true,
-	// 	msg: "服务器出错404",
-	// 	result: null
-	// })
-	//next(err);
+	res.status(404);
+	res.end();
 });
 /// error handlers
 

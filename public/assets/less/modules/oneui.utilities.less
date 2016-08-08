@@ -62,6 +62,15 @@
     &-l { padding-left: 0 !important; }
 }
 
+// Height helpers
+.mheight-50 { min-height: 50px; }
+.mheight-75 { min-height: 75px; }
+.mheight-100 { min-height: 100px; }
+.mheight-125 { min-height: 125px; }
+.mheight-150 { min-height: 150px; }
+.mheight-175 { min-height: 175px; }
+.mheight-200 { min-height: 200px; }
+
 // Vertical center align
 .align-v {
     .vertical-align();
@@ -149,9 +158,170 @@
     }
 }
 
+// Ribbons
+.ribbon {
+    position: relative;
+    min-height: 56px;
+
+    &-box {
+        position: absolute;
+        top: 10px;
+        right: 0;
+        padding: 0 15px;
+        height: 36px;
+        line-height: 36px;
+        color: #fff;
+        z-index: 500;
+
+        &:before {
+            position: absolute;
+            display: block;
+            width: 0;
+            height: 0;
+            content: "";
+        }
+    }
+
+    // Styles
+    &-bookmark {
+        .ribbon-box {
+            padding-left: 0;
+        }
+
+        .ribbon-box:before {
+            top: 0;
+            right: 100%;
+            border: 18px solid;
+            border-left-width: 10px;
+        }
+    }
+
+    &-modern {
+        .ribbon-box {
+            top: 0;
+        }
+
+        .ribbon-box:before {
+            top: 0;
+            right: 100%;
+            border: 18px solid;
+        }
+    }
+
+    // Position
+    &-left {
+        .ribbon-box {
+            right: auto;
+            left: 0;
+        }
+
+        &.ribbon-bookmark {
+            .ribbon-box {
+                padding-left: 15px;
+                padding-right: 0;
+            }
+
+            .ribbon-box:before {
+                right: auto;
+                left: 100%;
+                border-left-width: 18px;
+                border-right-width: 10px;
+            }
+        }
+
+        &.ribbon-modern {
+            .ribbon-box:before {
+                right: auto;
+                left: 100%;
+            }
+        }
+    }
+
+    &-bottom {
+        .ribbon-box {
+            top: auto;
+            bottom: 10px;
+        }
+
+        &.ribbon-modern .ribbon-box {
+            bottom: 0;
+        }
+    }
+
+    // Colors
+    &-primary {
+        .ribbon-variation(@brand-primary);
+    }
+
+    &-success {
+        .ribbon-variation(@brand-success);
+    }
+
+    &-info {
+        .ribbon-variation(@brand-info);
+    }
+
+    &-warning {
+        .ribbon-variation(@brand-warning);
+    }
+
+    &-danger {
+        .ribbon-variation(@brand-danger);
+    }
+
+    &-crystal {
+        .ribbon-box {
+            background-color: rgba(255,255,255,.35);
+        }
+
+        &.ribbon-bookmark {
+            .ribbon-box:before {
+                border-color: rgba(255,255,255,.35);
+                border-left-color: transparent;
+            }
+
+            &.ribbon-left .ribbon-box:before {
+                border-color: rgba(255,255,255,.35);
+                border-right-color: transparent;
+            }
+        }
+
+        &.ribbon-modern {
+            .ribbon-box:before {
+                border-color: rgba(255,255,255,.35);
+                border-left-color: transparent;
+                border-bottom-color: transparent;
+            }
+
+            &.ribbon-bottom .ribbon-box:before {
+                border-color: rgba(255,255,255,.35);
+                border-top-color: transparent;
+                border-left-color: transparent;
+            }
+
+            &.ribbon-left .ribbon-box:before {
+                border-color: rgba(255,255,255,.35);
+                border-right-color: transparent;
+                border-bottom-color: transparent;
+            }
+
+            &.ribbon-left.ribbon-bottom .ribbon-box:before {
+                border-color: rgba(255,255,255,.35);
+                border-top-color: transparent;
+                border-right-color: transparent;
+            }
+        }
+    }
+}
+
 // Helpers
 .overflow-hidden {
     overflow: hidden;
+}
+
+.overflow-y-auto {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .visibility-hidden {

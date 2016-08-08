@@ -65,7 +65,7 @@
 }
 
 // Transformations
-.transform(@scale, @rotate) {
+.transform(@scale; @rotate) {
     -webkit-transform: @arguments;
     -ms-transform: @arguments;
     transform: @arguments;
@@ -392,7 +392,7 @@
 // UI Framework Mixins
 
 // Layout
-.content-layout(@x, @y, @overflow) {
+.content-layout(@x; @y; @overflow) {
     margin: 0 auto;
     padding: @y @x 1px;
     max-width: 100%;
@@ -482,18 +482,63 @@
             }
         }
 
-        & + label {
-            color: @color;
-        }
-
         ~ .input-group-addon {
             color: @color;
             .box-shadow(0 1px 0 @color);
         }
     }
 
+    label {
+        color: @color;
+    }
+
     > .help-block {
         color: @color;
+    }
+}
+
+// Generate Ribbon Color Variation
+.ribbon-variation(@color) {
+    .ribbon-box {
+        background-color: @color;
+    }
+
+    &.ribbon-bookmark {
+        .ribbon-box:before {
+            border-color: @color;
+            border-left-color: transparent;
+        }
+
+        &.ribbon-left .ribbon-box:before {
+            border-color: @color;
+            border-right-color: transparent;
+        }
+    }
+
+    &.ribbon-modern {
+        .ribbon-box:before {
+            border-color: @color;
+            border-left-color: transparent;
+            border-bottom-color: transparent;
+        }
+
+        &.ribbon-bottom .ribbon-box:before {
+            border-color: @color;
+            border-top-color: transparent;
+            border-left-color: transparent;
+        }
+
+        &.ribbon-left .ribbon-box:before {
+            border-color: @color;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+        }
+
+        &.ribbon-left.ribbon-bottom .ribbon-box:before {
+            border-color: @color;
+            border-top-color: transparent;
+            border-right-color: transparent;
+        }
     }
 }
 
@@ -688,6 +733,10 @@
     }
 
     // Layout
+    #page-loader:after {
+        background-color: @brand-primary;
+    }
+
     .header-navbar-transparent.header-navbar-fixed.header-navbar-scroll {
         #header-navbar {
             background-color: @brand-dark;
@@ -757,6 +806,11 @@
                 }
             }
         }
+    }
+
+    // Ribbons
+    .ribbon-primary {
+        .ribbon-variation(@brand-primary);
     }
 
     // Plugins
@@ -837,5 +891,9 @@
         .select2-results__option--highlighted[aria-selected] {
             background-color: @brand-primary;
         }
+    }
+
+    .autocomplete-suggestion b {
+        color: @brand-primary;
     }
 }
