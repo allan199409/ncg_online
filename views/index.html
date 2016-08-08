@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9 no-focus"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-focus">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Hibiki</title>
+
+    <meta name="description" content="OneUI - Admin Dashboard Template & UI Framework created by pixelcave and published on Themeforest">
+    <meta name="author" content="pixelcave">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="assets/img/favicons/favicon.png">
+
+    <link rel="icon" type="image/png" href="assets/img/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="assets/img/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/img/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="assets/img/favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="assets/img/favicons/favicon-192x192.png" sizes="192x192">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon-180x180.png">
+    <!-- END Icons -->
+
+    <!-- Stylesheets -->
+    <!-- Web fonts -->
+
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" href="assets/js/plugins/slick/slick.min.css">
+    <link rel="stylesheet" href="assets/js/plugins/slick/slick-theme.min.css">
+
+    <!-- Bootstrap and OneUI CSS framework -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" id="css-main" href="assets/css/oneui.css">
+
+    <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
+    <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
+    <!-- END Stylesheets -->
+    <style>
+        .file {
+            position: relative;
+            display: inline-block;
+            background: #FFFFFF;
+            border: 1px solid #e1e1e1;
+            border-radius: 4px;
+            padding: 4px 12px;
+            overflow: hidden;
+            color: #000;
+            text-decoration: none;
+            text-indent: 0;
+            line-height: 20px;
+        }
+
+        .file input {
+            position: absolute;
+            font-size: 100px;
+            right: 0;
+            top: 0;
+            opacity: 0;
+            width: 78px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .file:hover {
+            background: #FFF;
+            border-color: #e1e1e1;
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Page Container -->
+    <!--
+            Available Classes:
+
+            'enable-cookies'             Remembers active color theme between pages (when set through color theme list)
+
+            'sidebar-l'                  Left Sidebar and right Side Overlay
+            'sidebar-r'                  Right Sidebar and left Side Overlay
+            'sidebar-mini'               Mini hoverable Sidebar (> 991px)
+            'sidebar-o'                  Visible Sidebar by default (> 991px)
+            'sidebar-o-xs'               Visible Sidebar by default (< 992px)
+
+            'side-overlay-hover'         Hoverable Side Overlay (> 991px)
+            'side-overlay-o'             Visible Side Overlay by default (> 991px)
+
+            'side-scroll'                Enables custom scrolling on Sidebar and Side Overlay instead of native scrolling (> 991px)
+
+            'header-navbar-fixed'        Enables fixed header
+        -->
+    <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
+
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <!-- Sidebar Scroll Container -->
+            <div id="sidebar-scroll">
+                <!-- Sidebar Content -->
+                <!-- Adding .sidebar-mini-hide to an element will hide it when the sidebar is in mini mode -->
+                <div class="sidebar-content">
+                    <!-- Side Header -->
+                    <div class="side-header side-content bg-white-op">
+                        <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+                        <button class="btn btn-link text-gray pull-right hidden-md hidden-lg" type="button" data-toggle="layout" data-action="sidebar_close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <a class="h5 text-white" href="index.html">
+                            <i class="fa fa-circle-o-notch text-primary"></i> <span class="h4 font-w600 sidebar-mini-hide">ne</span>
+                        </a>
+                    </div>
+                    <!-- END Side Header -->
+
+                    <!-- Side Content -->
+                    <div class="side-content">
+                        <ul class="nav-main">
+                            <li>
+                                <a class="active" href="index.html"><i class="si si-speedometer"></i><span class="sidebar-mini-hide">Hibiki</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END Side Content -->
+                </div>
+                <!-- Sidebar Content -->
+            </div>
+            <!-- END Sidebar Scroll Container -->
+        </nav>
+        <!-- END Sidebar -->
+
+        <!-- Header -->
+        <header id="header-navbar" class="content-mini content-mini-full">
+            <!-- Header Navigation Right -->
+            <ul class="nav-header pull-right">
+            </ul>
+            <!-- END Header Navigation Right -->
+
+            <!-- Header Navigation Left -->
+            <ul class="nav-header pull-left">
+                <li class="hidden-md hidden-lg">
+                    <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+                    <button class="btn btn-default" data-toggle="layout" data-action="sidebar_toggle" type="button">
+                        <i class="fa fa-navicon"></i>
+                    </button>
+                </li>
+                <li class="hidden-xs hidden-sm">
+                    <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+                    <button class="btn btn-default" data-toggle="layout" data-action="sidebar_mini_toggle" type="button">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </button>
+                </li>
+            </ul>
+            <!-- END Header Navigation Left -->
+        </header>
+        <!-- END Header -->
+
+        <!-- Main Container -->
+        <main id="main-container">
+            <!-- Page Header -->
+            <div class="content bg-image overflow-hidden" style="background-image: url('assets/img/photos/photo3@2x.jpg');">
+                <div class="push-50-t push-15">
+                    <h1 class="h2 text-white animated zoomIn">Hibiki</h1>
+                    <h2 class="h5 text-white-op animated zoomIn">欢迎使用Hibiki System</h2>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-6">
+                        <div class="block">
+                            <div class="block-header">
+                                <h3 class="block-title">正面图</h3>
+                            </div>
+                            <div class="block-content">
+                                <a href="javascript:;" class="file">选择文件
+                                    <input type="file" accept="image/png, image/jpeg" name="frontView" id="">
+                                </a>
+                                <div style="margin-top: 10px;margin-bottom: 10px;">
+                                    <img id="frontView" style="width: 100%;"></img>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-6">
+                        <div class="block">
+                            <div class="block-header">
+                                <h3 class="block-title">右侧视图</h3>
+                            </div>
+                            <div class="block-content">
+                                <a href="javascript:;" class="file">选择文件
+                                    <input type="file" accept="image/png, image/jpeg" name="rightView" id="">
+                                </a>
+                                <div style="margin-top: 10px;margin-bottom: 10px;">
+                                    <img id="rightView" style="width: 100%;"></img>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-lg-6">
+                        <div class="block">
+                            <div class="block-header">
+                                <h3 class="block-title">左侧视图</h3>
+                            </div>
+                            <div class="block-content">
+                                <a href="javascript:;" class="file">选择文件
+                                    <input type="file" accept="image/png, image/jpeg" name="leftView" id="">
+                                </a>
+                                <div style="margin-top: 10px;margin-bottom: 10px;">
+                                    <img id="leftView" style="width: 100%;"></img>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-6">
+                        <div class="block">
+                            <div class="block-header">
+                                <h3 class="block-title">后视图</h3>
+                            </div>
+                            <div class="block-content">
+                                <a href="javascript:;" class="file">选择文件
+                                    <input type="file" accept="image/png, image/jpeg" name="backView" id="">
+                                </a>
+                                <div style="margin-top: 10px;margin-bottom: 10px;">
+                                    <img id="backView" style="width: 100%;"></img>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="block">
+                            <div class="block-header">
+                                <h3 class="block-title">结果预览</h3>
+                            </div>
+                            <div class="block-content" id="preViewContaniner" style="text-align:center;">
+                                <canvas id="preView"></canvas>
+                                <div>
+                                    <button class="btn btn-minw btn-primary" type="button" id="get">获取播放码</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="display:none;">
+                <canvas id="real" height="720" width="720"></canvas>
+            </div>
+
+            <!-- END Page Header -->
+        </main>
+        <!-- END Main Container -->
+
+        <!-- Footer -->
+        <footer id="page-footer" class="content-mini content-mini-full font-s12 bg-gray-lighter clearfix">
+            <div class="pull-right">
+                Created by <a class="font-w600" href="http://goo.gl/vNS3I" target="_blank">yaya</a>
+            </div>
+            <div class="pull-left">
+                <a class="font-w600" href="http://goo.gl/6LF10W" target="_blank">Hibiki System</a> &copy; <span> 2016 - 3</span>
+            </div>
+        </footer>
+        <!-- END Footer -->
+    </div>
+    <!-- END Page Container -->
+
+    <!-- Apps Modal -->
+    <!-- Opens from the button in the header -->
+    <div class="modal fade" id="apps-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-sm modal-dialog modal-dialog-top">
+            <div class="modal-content">
+                <!-- Apps Block -->
+                <div class="block block-themed block-transparent">
+                    <div class="block-header bg-primary-dark">
+                        <ul class="block-options">
+                            <li>
+                                <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                            </li>
+                        </ul>
+                        <h3 class="block-title">上传成功</h3>
+                    </div>
+                    <div class="block-content">
+                        <p>请在app中输入以下查看码</p>
+                        <p id="showID" style="font-size: 24px; font-weight: bold;"></p>
+                    </div>
+                </div>
+                <!-- END Apps Block -->
+            </div>
+        </div>
+    </div>
+    <!-- END Apps Modal -->
+
+    <!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
+    <script src="assets/js/core/jquery.min.js"></script>
+    <script src="assets/js/core/bootstrap.min.js"></script>
+    <script src="assets/js/core/jquery.slimscroll.min.js"></script>
+    <script src="assets/js/core/jquery.scrollLock.min.js"></script>
+    <script src="assets/js/core/jquery.appear.min.js"></script>
+    <script src="assets/js/core/jquery.countTo.min.js"></script>
+    <script src="assets/js/core/jquery.placeholder.min.js"></script>
+    <script src="assets/js/core/js.cookie.min.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <!-- Page Plugins -->
+    <script src="assets/js/plugins/slick/slick.min.js"></script>
+    <script src="assets/js/plugins/chartjs/Chart.min.js"></script>
+
+    <!-- Page JS Code -->
+    <script src="assets/js/pages/index.js"></script>
+    <script>
+        $(function() {
+            // Init page helpers (Slick Slider plugin)
+            App.initHelpers('slick');
+        });
+    </script>
+</body>
+
+</html>
