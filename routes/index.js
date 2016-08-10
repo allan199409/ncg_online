@@ -6,10 +6,14 @@ exports.index = function(req, res, next) {
     res.render("index");
 }
 
-exports.uploadPic = function(req, res, next) {
-    var name = mew_util.createUUID().slice(0, 4);
-    var data = new Buffer(req.body.picData, 'base64');
+exports.admin = function(req, res) {
+    res.render("admin");
+}
 
-    fs.writeFile(path.resolve(__dirname, '..', 'public', 'pics', name + '.png'), data);
-    res.end(name);
+exports.article = function(req, res) {
+    res.render("article");
+}
+
+exports.newarticle = function(req, res) {
+    res.render("newarticle");
 }
