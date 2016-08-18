@@ -43,6 +43,7 @@ app.use(app.router);
 app.get('/admin', routes.admin);
 app.get('/admin/article*', routes.article);
 app.get('/admin/newarticle', routes.newarticle);
+app.get("/admin/getUploadToken", routes.getUploadToken);
 // app.post('/uploadPic', routes.uploadPic);
 // catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

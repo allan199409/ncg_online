@@ -1012,7 +1012,7 @@ var App = function() {
         jQuery('.js-tags-input').tagsInput({
             height: '36px',
             width: '100%',
-            defaultText: 'Add tag',
+            defaultText: '添加标签',
             removeWithBackspace: true,
             delimiter: [',']
         });

@@ -1,0 +1,13 @@
+{
+    "qiniu": {
+        "ACCESS_KEY": "-2u58W0zPkscgxsZ3yVZEa_eAmxSxHAXGWOhhioT",
+        "SECRET_KEY": "utNHjiOVRBHPJO-FG_xhvt_vzPaEUs2J0-WL_0i1",
+        "bucket": "dev-ncg"
+    },
+    "resources": {
+        "domain": "http://static.dev.ncg.yayanosite.com"
+    },
+    "article": {
+        "defaultCover": "/assets/img/cover/default.png"
+    }
+}
