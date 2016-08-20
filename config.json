@@ -11,9 +11,9 @@
         "defaultCover": "/assets/img/cover/default.png"
     },
     "dataBase": {
-        "host": "127.0.0.1:3306",
+        "host": "127.0.0.1",
         "port": 3306,
-        "user": "yaya",
+        "user": "root",
         "password": "6736498jcf",
         "database": "ncg"
     },
