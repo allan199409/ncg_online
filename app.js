@@ -12,17 +12,6 @@ var users = require('./routes/user.js');
 var mew_util = require('mew_util');
 var app = express();
 var cors = require('cors');
-var dbServer = require('dbServer');
-
-mew_util.async(function() {
-	console.log("link to database");
-	dbServer.init(this.next);
-}).then(function() {
-	var port = 2333;
-    console.log("server try to listen on " + port);
-	app.listen(port);
-	console.log('server started');
-})
 
 // view engine setup
 app.engine('.html', ejs.__express);
@@ -44,7 +33,8 @@ app.get('/admin', routes.admin);
 app.get('/admin/article*', routes.article);
 app.get('/admin/newarticle', routes.newarticle);
 app.get("/admin/getUploadToken", routes.getUploadToken);
-// app.post('/uploadPic', routes.uploadPic);
+app.post("/admin/saveArticle", routes.saveArticle);
+
 // catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
 	res.status(404);
@@ -62,5 +52,11 @@ app.use(function(req, res, next) {
 // 	});
 // });
 
-//app.listen(6979);
+mew_util.async(function() {
+	routes.init(this.next);
+}).then(function() {
+	app.listen(config.serverRuntime.port);
+	console.log("server try to listen on " + port);
+	console.log('server started');
+})
 console.log('server started');

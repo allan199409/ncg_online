@@ -3,11 +3,21 @@ const fs = require("fs");
 const path = require("path");
 const qiniu = require("qiniu");
 const cheerio = require("cheerio");
+const dbServer = require("dbServer");
 
 const config = require(path.join(process.cwd(), "config.json"));
 
 qiniu.conf.ACCESS_KEY = config.qiniu.ACCESS_KEY;
 qiniu.conf.SECRET_KEY = config.qiniu.SECRET_KEY;
+
+exports.init = function(callback) {
+    mew_util.async(function() {
+        console.log("start to connect database");
+        dbServer.init(this.next);
+    }).then(function() {
+        callback();
+    })
+}
 
 exports.index = function(req, res, next) {
     res.render("index");
@@ -26,7 +36,6 @@ exports.newarticle = function(req, res) {
         fs.readFile(path.join(process.cwd(), "views", "newarticle.html"), this.test);
     }).then(function(content) {
         var html = cheerio.load(content.toString());
-        html("#static-domain").html(`var staticDomain = "${config.resources.domain}"`);
         html("#cover-preview").attr("src", config.article.defaultCover);
         res.send(html.html());
     })
@@ -48,6 +57,13 @@ exports.getUploadToken = function(req, res) {
 
     res.json({
         key: key,
+        url: config.resources.domain + "/" +key,
         token: token
     })
+}
+
+exports.saveArticle = function(req, res) {
+
+
+
 }

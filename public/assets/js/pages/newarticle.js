@@ -157,6 +157,7 @@ var uploadPic = function(file, type, callback) {
         },
         success: function (data) {
             uploadToQiniu(file, data.token, data.key, function(blkRet) {
+                blkRet.url = data.url;
                 callback(blkRet);
             });
         },
@@ -193,9 +194,20 @@ var upload = function(textareaValue) {
                 cover: $("#cover-preview").attr("src"),
                 summary: parseInt($("#form-summary").val()),
                 tags: $("#form-tags").val(),
-                content: content.prop('outerHTML')
+                content: content.prop('innerHTML')
             }
-            console.log(uploadContent);
+
+            $.ajax({
+                "url": "/admin/saveArticle",
+                "method": "post",
+                "data": uploadContent,
+                "success": function(data) {
+                    console.log(data);
+                },
+                "error": function() {
+
+                }
+            })
 
         }
     }
@@ -207,7 +219,8 @@ var upload = function(textareaValue) {
                 uploadErr("不支持的图片格式");
             } else {
                 uploadPic(image.file, type, function(blkRet) {
-                    image.dom.attr("src", staticDomain + "/" + blkRet.key);
+                    console.log(blkRet);
+                    image.dom.attr("src", blkRet.url);
                     imageCount = imageCount - 1;
                     tryFinalSubmit();
                 });
@@ -227,8 +240,9 @@ $("#form-image").on("change", function() {
     if (file) {
         uplaodingCover = true;
         uploadPic(file, convertType[file.type], function(blkRet) {
+            console.log(blkRet);
             uplaodingCover = false;
-            preview.src = staticDomain + "/" + blkRet.key;
+            preview.src = blkRet.url;
         })
     } else {
         preview.src="/assets/img/cover/default.png";

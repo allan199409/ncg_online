@@ -9,5 +9,15 @@
     },
     "article": {
         "defaultCover": "/assets/img/cover/default.png"
+    },
+    "dataBase": {
+        "host": "127.0.0.1:3306",
+        "port": 3306,
+        "user": "yaya",
+        "password": "6736498jcf",
+        "database": "ncg"
+    },
+    "serverRuntime": {
+        "port": 2333
     }
 }
