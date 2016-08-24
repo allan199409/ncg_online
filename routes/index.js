@@ -37,10 +37,15 @@ var isRequestLegal = function(options, query) {
                     }
                 }
             } else {
+                console.log("type error")
                 result = false;
                 break;
             }
         } else {
+            console.log(query);
+            console.log(valueToCheck);
+            console.log(key);
+            console.log("require");
             result = false;
             break;
         }
@@ -86,6 +91,36 @@ exports.getUploadToken = function(req, res) {
 
 }
 
+exports.removeArticle = function(req, res) {
+
+    var query = req.body;
+    console.log(query);
+    var queryTest = {
+        "id": {
+            "type": Number
+        }
+    }
+
+    if (isRequestLegal(queryTest, query)) {
+        mew_util.async(function() {
+            dbServer.removeArticle(query, this.test);
+        }).then(function() {
+            res.json({
+                err: false,
+                msg: "success",
+                result: true
+            })
+        }).rejected(function(err) {
+            console.log(err);
+            res.status(500);
+            res.send();
+        })
+    } else {
+        res.status(400);
+        res.end();
+    }
+}
+
 exports.saveArticle = function(req, res) {
 
     var query = req.body;
@@ -127,7 +162,7 @@ exports.saveArticle = function(req, res) {
             })
         }).rejected(function() {
             res.status(500);
-            res.render("500");
+            res.send();
         })
 
     } else {

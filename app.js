@@ -23,12 +23,6 @@ app.engine('.html', ejs.__express);
 app.set('view engine', 'html');
 app.use(logger('dev'));
 app.use(cors());
-app.use(function(req, res, next) {
-	req.on("data", function(data) {
-		console.log(data.toString());
-	})
-	next();
-})
 app.use(bodyParser.json({
 	"limit": "10mb"
 }));
@@ -66,6 +60,7 @@ app.use(orm.express(`mysql://${config.dataBase.user}:${config.dataBase.password}
 
 app.get("/admin/getUploadToken", routes.getUploadToken);
 app.post("/admin/saveArticle", routes.saveArticle);
+app.post("/admin/removeArticle", routes.removeArticle);
 
 app.get("/document/*", render.document);
 
