@@ -9,9 +9,11 @@ const mew_util = require('mew_util');
 const cors = require('cors');
 const session = require('express-session');
 const methodOverride = require('method-override');
+const orm = require('orm');
 
 const routes = require('./routes/index.js');
 const users = require('./routes/user.js');
+const render = require('./routes/render.js');
 
 const config = require('./config.json');
 
@@ -21,6 +23,12 @@ app.engine('.html', ejs.__express);
 app.set('view engine', 'html');
 app.use(logger('dev'));
 app.use(cors());
+app.use(function(req, res, next) {
+	req.on("data", function(data) {
+		console.log(data.toString());
+	})
+	next();
+})
 app.use(bodyParser.json({
 	"limit": "10mb"
 }));
@@ -28,6 +36,7 @@ app.use(bodyParser.urlencoded({
 	"limit": "10mb",
 	"extended": false
 }));
+
 app.use(methodOverride());
 app.use(cookieParser('sctalk admin manager'));
 app.use(session({
@@ -37,18 +46,44 @@ app.use(session({
 	cookie: { secure: true }
 }));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(orm.express(`mysql://${config.dataBase.user}:${config.dataBase.password}@${config.dataBase.host}:${config.dataBase.port}/${config.dataBase.database}`, {
+    define: function (db, models, next) {
+        models.articles = db.define("articles", {
+			"id": { type: 'integer', key: true },
+			"title": String,
+			"author": String,
+			"short": String,
+			"cover": String,
+			"summary": { type: 'integer' },
+			"tags": String,
+			"content": String,
+			"count": { type: "integer" },
+			"update_time": Date
+		});
+        next();
+    }
+}));
 
-app.get('/admin', routes.admin);
-app.get('/admin/article*', routes.article);
-app.get('/admin/newarticle', routes.newarticle);
 app.get("/admin/getUploadToken", routes.getUploadToken);
 app.post("/admin/saveArticle", routes.saveArticle);
 
+app.get("/document/*", render.document);
+
+app.get('/admin', render.admin);
+app.get('/admin/article*', render.articles);
+app.get('/admin/newarticle', render.newarticle);
+app.get("/admin/editarticle", render.editarticle);
 
 app.use(function(req, res, next) {
 	res.status(404);
-	res.end();
+	res.render("404");
 });
+
+app.use(function(err, req, res, next) {
+	console.log(err);
+	res.status(500);
+	res.render("500");
+})
 
 mew_util.async(function() {
 	routes.init(this.next);

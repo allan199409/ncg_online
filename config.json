@@ -15,7 +15,9 @@
         "port": 3306,
         "user": "root",
         "password": "6736498jcf",
-        "database": "ncg"
+        "database": "ncg",
+        "init": true,
+        "initSql": "ncg.sql"
     },
     "serverRuntime": {
         "port": 2333
